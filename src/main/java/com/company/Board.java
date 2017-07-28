@@ -20,14 +20,14 @@ public class Board {
         initRandomTiles();
     }
 
-    private void initRandomTiles(){
+    public void initRandomTiles(){
         tiles = new int[size][size];
 
         for (int i = 1; i < size * size; i++){
             int curIndex = (int) (Math.random() * (size * size - 1));
             while (tiles[curIndex / size][curIndex % size] != 0){
                 curIndex = (int) (Math.random() * (size * size - 1));
-            } 
+            }
             tiles[curIndex / size][curIndex % size] = i;
         }
         if (!isSolvable())
@@ -70,16 +70,16 @@ public class Board {
                     emptyRow ++;
                 }
                 break;
-            
+
             case DOWN:
                 if (emptyCol > 0){
                     int tmpTile = tiles[emptyCol - 1][emptyRow];
                     tiles[emptyCol - 1][emptyRow] = 0;
                     tiles[emptyCol][emptyRow] = tmpTile;
-                    emptyCol --;                    
+                    emptyCol --;
                 }
-                break;  
-                
+                break;
+
             case RIGHT:
                 if (emptyRow > 0){
                     int tmpTile = tiles[emptyCol][emptyRow - 1];
@@ -88,15 +88,15 @@ public class Board {
                     emptyRow --;
                 }
                 break;
-                
+
             case UP:
                 if (emptyCol < size - 1){
                     int tmpTile = tiles[emptyCol + 1][emptyRow];
                     tiles[emptyCol + 1][emptyRow] = 0;
                     tiles[emptyCol][emptyRow] = tmpTile;
-                    emptyCol ++;                    
+                    emptyCol ++;
                 }
-                
+
         }
     }
 

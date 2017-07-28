@@ -10,7 +10,11 @@ class GameView {
          for (int[] tile : tiles) {
              System.out.print("| ");
              for (int j = 0; j < tiles.length; j++) {
-                 System.out.printf("%3d", tile[j]);
+
+                 if (tile[j] != 0)
+                    System.out.printf("%3d", tile[j]);
+                 else
+                     System.out.printf("%3s", " ");
                  System.out.print(" | ");
              }
              System.out.println("\n_________________________");
